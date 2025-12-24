@@ -1,109 +1,110 @@
-import { useState, useEffect } from "react";
-import CuteLamp from "../components/CuteLamp";
-import "./login.css";
+// import { useState, useEffect } from "react";
+// import CuteLamp from "../components/CuteLamp";
+// import "./login.css";
+// import { login, signup } from "../api/auth";
 
-const USERS_KEY = "codearchitect_users";
+// const USERS_KEY = "codearchitect_users";
 
-export default function Login({ onLogin }) {
-  const [lampOn, setLampOn] = useState(false);
-  const [mode, setMode] = useState("login"); // login | signup
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+// export default function Login({ onLogin }) {
+//   const [lampOn, setLampOn] = useState(false);
+//   const [mode, setMode] = useState("login"); // login | signup
+//   const [username, setUsername] = useState("");
+//   const [password, setPassword] = useState("");
+//   const [error, setError] = useState("");
 
-  // Check if user exists → decide mode
-  useEffect(() => {
-    if (!username) return;
+//   // Check if user exists → decide mode
+//   useEffect(() => {
+//     if (!username) return;
 
-    const users = JSON.parse(localStorage.getItem(USERS_KEY) || "{}");
-    setMode(users[username] ? "login" : "signup");
-  }, [username]);
+//     // const users = JSON.parse(localStorage.getItem(USERS_KEY) || "{}");
+//     setMode(users[username] ? "login" : "signup");
+//   }, [username]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setError("");
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     setError("");
 
-    if (!username || !password) {
-      setError("All fields are required");
-      return;
-    }
+//     if (!username || !password) {
+//       setError("All fields are required");
+//       return;
+//     }
 
-    const users = JSON.parse(localStorage.getItem(USERS_KEY) || "{}");
+//     const users = JSON.parse(localStorage.getItem(USERS_KEY) || "{}");
 
-    // ───────── LOGIN ─────────
-    if (mode === "login") {
-      if (!users[username]) {
-        setError("User not found. Please sign up.");
-        return;
-      }
+//     // ───────── LOGIN ─────────
+//     if (mode === "login") {
+//       if (!users[username]) {
+//         setError("User not found. Please sign up.");
+//         return;
+//       }
 
-      if (users[username].password !== password) {
-        setError("Invalid password");
-        return;
-      }
+//       if (users[username].password !== password) {
+//         setError("Invalid password");
+//         return;
+//       }
 
-      localStorage.setItem("isAuth", "true");
-      localStorage.setItem("currentUser", username);
-      onLogin();
-    }
+//       localStorage.setItem("isAuth", "true");
+//       localStorage.setItem("currentUser", username);
+//       onLogin();
+//     }
 
-    // ───────── SIGN UP ─────────
-    if (mode === "signup") {
-      users[username] = {
-        password,
-        createdAt: Date.now(),
-      };
+//     // ───────── SIGN UP ─────────
+//     if (mode === "signup") {
+//       users[username] = {
+//         password,
+//         createdAt: Date.now(),
+//       };
 
-      localStorage.setItem(USERS_KEY, JSON.stringify(users));
-      localStorage.setItem("isAuth", "true");
-      localStorage.setItem("currentUser", username);
-      onLogin();
-    }
-  };
+//       localStorage.setItem(USERS_KEY, JSON.stringify(users));
+//       localStorage.setItem("isAuth", "true");
+//       localStorage.setItem("currentUser", username);
+//       onLogin();
+//     }
+//   };
 
-  return (
-    <div className="login-page">
-      <h1 className="login-title">CODEARCHITECT</h1>
+//   return (
+//     <div className="login-page">
+//       <h1 className="login-title">CODEARCHITECT</h1>
 
-      {/* Lamp */}
-      <div className="lamp-wrapper">
-        <CuteLamp lampOn={lampOn} onToggle={setLampOn} />
-      </div>
+//       {/* Lamp */}
+//       <div className="lamp-wrapper">
+//         <CuteLamp lampOn={lampOn} onToggle={setLampOn} />
+//       </div>
 
-      {/* Floating Auth Box */}
-      <div className={`login-float ${lampOn ? "show" : ""}`}>
-        <form className="login-form" onSubmit={handleSubmit}>
-          <h2>{mode === "login" ? "Login" : "Sign Up"}</h2>
+//       {/* Floating Auth Box */}
+//       <div className={`login-float ${lampOn ? "show" : ""}`}>
+//         <form className="login-form" onSubmit={handleSubmit}>
+//           <h2>{mode === "login" ? "Login" : "Sign Up"}</h2>
 
-          <input
-            placeholder="Username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value.trim())}
-          />
+//           <input
+//             placeholder="Username"
+//             value={username}
+//             onChange={(e) => setUsername(e.target.value.trim())}
+//           />
 
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
+//           <input
+//             type="password"
+//             placeholder="Password"
+//             value={password}
+//             onChange={(e) => setPassword(e.target.value)}
+//           />
 
-          {error && <div className="auth-error">{error}</div>}
+//           {error && <div className="auth-error">{error}</div>}
 
-          <button>
-            {mode === "login" ? "Login" : "Create Account"}
-          </button>
+//           <button>
+//             {mode === "login" ? "Login" : "Create Account"}
+//           </button>
 
-          <div className="auth-hint">
-            {mode === "login"
-              ? "Existing user detected"
-              : "New user — account will be created"}
-          </div>
-        </form>
-      </div>
-    </div>
-  );
-}
+//           <div className="auth-hint">
+//             {mode === "login"
+//               ? "Existing user detected"
+//               : "New user — account will be created"}
+//           </div>
+//         </form>
+//       </div>
+//     </div>
+//   );
+// }
 // import { useState } from "react";
 // import CuteLamp from "../components/CuteLamp";
 // import "./login.css";
@@ -186,3 +187,111 @@ export default function Login({ onLogin }) {
 //     </div>
 //   );
 // }
+import { useState } from "react";
+import CuteLamp from "../components/CuteLamp";
+import "./login.css";
+import { login, signup } from "../api/auth";
+
+export default function Login({ onLogin }) {
+  const [lampOn, setLampOn] = useState(false);
+  const [mode, setMode] = useState("login"); // login | signup
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+    setLoading(true);
+
+    try {
+      let res;
+
+      if (mode === "login") {
+        res = await login(username, password);
+      } else {
+        res = await signup(username, password);
+      }
+
+      // ✅ Store auth info
+      localStorage.setItem("token", res.data.token);
+      localStorage.setItem("currentUser", res.data.user.username);
+      localStorage.setItem("isAuth", "true");
+
+      onLogin();
+    } catch (err) {
+      setError(err.response?.data?.error || "Authentication failed");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="login-page">
+      <h1 className="login-title">CODEARCHITECT</h1>
+
+      {/* Lamp */}
+      <div className="lamp-wrapper">
+        <CuteLamp lampOn={lampOn} onToggle={setLampOn} />
+      </div>
+
+      {/* Floating Auth Box */}
+      <div className={`login-float ${lampOn ? "show" : ""}`}>
+        <form className="login-form" onSubmit={handleSubmit}>
+          <h2>{mode === "login" ? "Login" : "Sign Up"}</h2>
+
+          <input
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value.trim())}
+            required
+          />
+
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+
+          {error && <div className="auth-error">{error}</div>}
+
+          <button disabled={loading}>
+            {loading
+              ? "Please wait..."
+              : mode === "login"
+              ? "Login"
+              : "Create Account"}
+          </button>
+
+          {/* Mode Switch */}
+          <div className="auth-switch">
+            {mode === "login" ? (
+              <span>
+                New user?{" "}
+                <button
+                  type="button"
+                  onClick={() => setMode("signup")}
+                >
+                  Create account
+                </button>
+              </span>
+            ) : (
+              <span>
+                Already have an account?{" "}
+                <button
+                  type="button"
+                  onClick={() => setMode("login")}
+                >
+                  Login
+                </button>
+              </span>
+            )}
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+}

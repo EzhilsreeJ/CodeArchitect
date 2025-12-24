@@ -10,13 +10,17 @@
   "dependencies": {
     "@google/genai": "^1.32.0",
     "@google/generative-ai": "^0.24.1",
+    "@vercel/client": "^17.2.18",
     "@vercel/sdk": "^1.18.2",
+    "axios": "^1.13.2",
     "bcrypt": "^6.0.0",
+    "buffer": "^6.0.3",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^4.22.1",
     "jsonwebtoken": "^9.0.3",
     "mongoose": "^8.20.4",
+    "node-fetch": "^3.3.2",
     "simple-git": "^3.30.0"
   },
   "devDependencies": {

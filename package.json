@@ -1,11 +1,20 @@
 {
   "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "@vercel/client": "^17.2.18",
     "@vscode/codicons": "^0.0.44",
+    "axios": "^1.13.2",
     "bcryptjs": "^3.0.3",
+    "buffer": "^6.0.3",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
     "file-saver": "^2.0.5",
     "jszip": "^3.10.1",
+    "node-fetch": "^3.3.2",
     "react-markdown": "^10.1.0",
     "remark-gfm": "^4.0.1",
+    "simple-git": "^3.30.0",
     "uuid": "^13.0.0"
   }
 }

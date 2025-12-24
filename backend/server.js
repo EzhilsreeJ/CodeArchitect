@@ -9,8 +9,9 @@ import deployRoute from "./routes/deploy.js";
 
 dotenv.config({ override: true });
 import express from "express";
-// import mongoose from "mongoose";
+import mongoose from "mongoose";
 import cors from "cors";
+import authRoutes from "./routes/auth.js";
 // import authRoutes from "./routes/authRoutes.js";
 
 // -------------------- App Setup --------------------
@@ -22,6 +23,7 @@ app.use(express.json());
 
 app.use("/api/vercel", deployRoute);
 console.log("VERCEL TOKEN:", process.env.VERCEL_TOKEN?.slice(0, 6));
+app.use("/api/auth", authRoutes);
 
 
 app.use(express.json({ limit: "50mb" }));
@@ -40,14 +42,13 @@ async function generateWithRetry(prompt, retries = 2) {
 }
 
 // app.use("/api/auth", authRoutes);
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => console.log("📦 MongoDB connected"))
+.catch((err) => console.error("❌ Mongo connection error", err));
 
-// mongoose.connect(process.env.MONGO_URI)
-//   .then(() => console.log("MongoDB connected"))
-//   .catch(err => console.error(err));
-
-// app.listen(5000, () => {
-//   console.log("Server running on http://localhost:5000");
-// });
 
 // -------------------- Gemini Setup --------------------
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
@@ -71,6 +72,9 @@ app.post("/api/customize", async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
+// app.get("/api/profile", auth, (req, res) => {
+//   res.json({ userId: req.user.id });
+// });
 
 // app.post("/api/login", (req, res) => {
 //   const { username, password } = req.body;
