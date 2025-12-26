@@ -17,7 +17,7 @@ developers face challenges such as:
 
 **CodeArchitect** solves these by providing one integrated platform that
 generates code, organizes projects, manages repositories, and deploys
-websites automatically --- all from natural‑language prompts.
+websites automatically --- all from natural-language prompts.
 
 ------------------------------------------------------------------------
 
@@ -27,13 +27,13 @@ CodeArchitect is an AI-powered web application that automates website
 creation and deployment. Users describe the website they want, and the
 system generates code, structures files, pushes to GitHub, and deploys
 to Vercel --- reducing time and effort while maintaining
-software‑engineering standards.
+software-engineering standards.
 
 ------------------------------------------------------------------------
 
 ## 🎯 Objectives
 
--   Generate websites from natural‑language prompts\
+-   Generate websites from natural-language prompts\
 -   Reduce manual setup and deployment steps\
 -   Provide clear workflows for beginners\
 -   Support real DevOps practices with GitHub + Vercel
@@ -60,7 +60,7 @@ software‑engineering standards.
 
 ### AI
 
--   LLM‑powered code generation
+-   LLM-powered code generation
 
 ### DevOps / Deployment
 
@@ -69,22 +69,21 @@ software‑engineering standards.
 
 ------------------------------------------------------------------------
 
-## 📋 Prerequisites (Before You Start)
+## 📋 Prerequisites
 
-Install the following on your system:
+Install before starting:
 
--   **Node.js 18+** --- https://nodejs.org\
--   **npm** (installed with Node)\
--   **Git** --- https://git-scm.com/downloads\
--   **MongoDB Atlas account** --- https://www.mongodb.com/atlas\
--   **GitHub account** --- https://github.com\
--   **Vercel account** --- https://vercel.com
+-   Node.js 18+\
+-   Git\
+-   MongoDB Atlas account\
+-   GitHub account\
+-   Vercel account
 
-Recommended: - VS Code --- https://code.visualstudio.com
+Recommended: VS Code
 
 ------------------------------------------------------------------------
 
-## 🗂️ Project Folder Structure (Recommended)
+## 🗂️ Folder Structure
 
     CodeArchitect/
      ├── backend/
@@ -93,9 +92,9 @@ Recommended: - VS Code --- https://code.visualstudio.com
 
 ------------------------------------------------------------------------
 
-## 🔐 Environment Variables (Required)
+## 🔐 Environment Variables
 
-Create a `.env` file inside **backend**:
+Create `.env` inside **backend**:
 
     MONGO_URI=your_mongodb_connection_string
     JWT_SECRET=your_secret_key
@@ -103,13 +102,33 @@ Create a `.env` file inside **backend**:
     GITHUB_TOKEN=your_github_token
     VERCEL_TOKEN=your_vercel_token
 
-Never commit `.env` to GitHub.
+> Do not commit `.env` to GitHub.
+
+------------------------------------------------------------------------
+
+## 🔑 Generate JWT Secret Key (Recommended Command)
+
+Run this in terminal:
+
+``` bash
+openssl rand -base64 32
+```
+
+Copy the generated value and paste it as:
+
+    JWT_SECRET=generated_key_here
+
+(Alternative if OpenSSL is unavailable)
+
+``` bash
+node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+```
 
 ------------------------------------------------------------------------
 
 ## 🧰 Installation Guide
 
-### 📂 1️⃣ Clone the Repository
+### Clone
 
 ``` bash
 git clone <your-repository-url>
@@ -118,23 +137,39 @@ cd CodeArchitect
 
 ------------------------------------------------------------------------
 
-## ⚙️ 2️⃣ Install Dependencies
+## ⚙️ Install Dependencies
 
-### 🔹 Frontend --- Single Command
+### Frontend --- Single Command
 
 ``` bash
 cd frontend
 npm install react react-dom react-router-dom react-markdown remark-gfm react-syntax-highlighter @vscode/codicons jszip file-saver clsx
 ```
 
-### 🔹 Backend --- Single Command
+### ➕ Install Axios (Frontend)
+
+Used for API requests:
+
+``` bash
+npm install axios
+```
+
+------------------------------------------------------------------------
+
+### Backend --- Single Command
 
 ``` bash
 cd ../backend
 npm install express cors dotenv @google/generative-ai simple-git node-fetch buffer @vercel/client
 ```
 
-(Optional for development)
+### ➕ Install Axios (Backend -- if API calls are needed)
+
+``` bash
+npm install axios
+```
+
+(Optional dev tool)
 
 ``` bash
 npm install --save-dev nodemon
@@ -142,9 +177,9 @@ npm install --save-dev nodemon
 
 ------------------------------------------------------------------------
 
-## ▶️ 3️⃣ Run the Project
+## ▶️ Run the Project
 
-### Start Backend
+### Backend
 
 ``` bash
 node index.js
@@ -156,7 +191,7 @@ or
 npx nodemon index.js
 ```
 
-### Start Frontend
+### Frontend
 
 ``` bash
 cd frontend
@@ -165,58 +200,30 @@ npm start
 
 ------------------------------------------------------------------------
 
-## 🚀 Implementation Workflow
+## 🚀 Workflow
 
-1.  Login / Signup\
-2.  Enter website prompt\
-3.  AI generates website code\
-4.  User reviews and edits\
-5.  Push to GitHub\
-6.  Deploy to Vercel\
-7.  Receive live deployed link
-
-------------------------------------------------------------------------
-
-## 🧪 Testing
-
--   Manual testing\
--   API testing in Postman\
--   UI validation\
--   Error‑handling checks
-
-------------------------------------------------------------------------
-
-## 📈 Benefits
-
--   Faster development\
--   Minimal setup\
--   Beginner‑friendly\
--   Real DevOps pipeline
-
-------------------------------------------------------------------------
-
-## 🔮 Future Enhancements
-
--   Live preview editor\
--   Multi‑theme generation\
--   Collaboration features
+1.  Login
+2.  Enter prompt
+3.  AI generates code
+4.  Review
+5.  Push to GitHub
+6.  Deploy via Vercel
+7.  Get live link
 
 ------------------------------------------------------------------------
 
 ## 👩‍💻 Developed By
 
-Project Team -- CodeArchitect\
-Department of Artificial Intelligence & Data Science\
-Saveetha Engineering College
+Project Team -- CodeArchitect
 
 ------------------------------------------------------------------------
 
 ## 📚 References
 
--   React --- https://react.dev\
--   Node.js --- https://nodejs.org\
--   Express --- https://expressjs.com\
--   MongoDB --- https://www.mongodb.com/docs\
--   Google Generative AI --- https://ai.google.dev\
--   GitHub --- https://docs.github.com\
+-   React --- https://react.dev
+-   Node.js --- https://nodejs.org
+-   Express --- https://expressjs.com
+-   MongoDB --- https://www.mongodb.com/docs
+-   Google Generative AI --- https://ai.google.dev
+-   GitHub --- https://docs.github.com
 -   Vercel --- https://vercel.com/docs
