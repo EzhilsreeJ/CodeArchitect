@@ -1,120 +1,158 @@
-# CodeArchitect -- AI-Powered Website Generation & Deployment Platform
-
-## 📝 Problem Statement
-
-Modern web development often requires multiple tools, repeated setup,
-and complex deployment workflows. Beginners and even experienced
-developers face challenges such as:
-
--   **Integration gaps** -- no smooth link between local project files,
-    GitHub, and Vercel.\
--   **Customization limits** -- difficulty changing themes, design, and
-    features.\
--   **Setup problems** -- repeating the same configuration and
-    encountering different build errors on different systems.\
--   **User challenges** -- unclear deployment steps and confusing error
-    messages.
-
-**CodeArchitect** solves these by providing one integrated platform that
-generates code, organizes projects, manages repositories, and deploys
-websites automatically --- all from natural-language prompts.
+# CodeArchitect -- AI‑Powered Website Generation & Deployment Platform
 
 ------------------------------------------------------------------------
 
-## 📌 Project Overview
+## 📝 Problem Statement
 
-CodeArchitect is an AI-powered web application that automates website
-creation and deployment. Users describe the website they want, and the
-system generates code, structures files, pushes to GitHub, and deploys
-to Vercel --- reducing time and effort while maintaining
-software-engineering standards.
+Modern web development often requires multiple tools, repeated
+configurations, and complex deployment processes. This creates
+challenges such as:
+
+-   **Integration gaps** --- no smooth connection between local files,
+    GitHub, and Vercel\
+-   **Customization limits** --- changing UI themes and features
+    requires heavy manual edits\
+-   **Setup repetition** --- projects fail on different systems due to
+    inconsistent builds\
+-   **User difficulty** --- beginners struggle with unclear deployment
+    steps and error messages
+
+**CodeArchitect** provides a unified AI‑powered platform that:
+
+✔️ Generates complete website code from natural‑language prompts\
+✔️ Organizes the project automatically\
+✔️ Pushes repositories to GitHub\
+✔️ Deploys applications instantly using Vercel
+
+This significantly reduces development time, effort, and technical
+complexity --- while still maintaining professional engineering
+standards.
+
+------------------------------------------------------------------------
+
+## 🎯 Project Overview
+
+CodeArchitect automates the entire website development lifecycle ---
+from idea to deployment.\
+It integrates AI, version control, and deployment tools into one
+seamless workflow designed for both beginners and developers.
 
 ------------------------------------------------------------------------
 
 ## 🎯 Objectives
 
--   Generate websites from natural-language prompts\
+-   Enable AI‑driven website creation\
 -   Reduce manual setup and deployment steps\
--   Provide clear workflows for beginners\
--   Support real DevOps practices with GitHub + Vercel
+-   Support real DevOps workflows (GitHub + Vercel)\
+-   Provide a structured, beginner‑friendly platform
 
 ------------------------------------------------------------------------
 
 ## 🛠️ Tech Stack
 
-Frontend: React • HTML • CSS • JavaScript\
-Backend: Node.js • Express\
-Database: MongoDB\
-AI: LLM-based code generation\
-Deployment: GitHub • Vercel
+### Frontend
+
+-   React.js\
+-   HTML5, CSS3, JavaScript
+
+### Backend
+
+-   Node.js\
+-   Express.js\
+-   REST APIs
+
+### Database
+
+-   MongoDB
+
+### AI Integration
+
+-   Google Gemini (LLM)
+
+### Deployment
+
+-   GitHub\
+-   Vercel
 
 ------------------------------------------------------------------------
 
-## 📋 Prerequisites
+## 📋 System Requirements
 
-Install before starting: Node.js, Git, MongoDB, GitHub, Vercel.
+### Software
+
+-   Node.js 18+\
+-   npm\
+-   Git\
+-   MongoDB (local or Atlas)
+
+### Optional (Recommended)
+
+-   Visual Studio Code
 
 ------------------------------------------------------------------------
 
-## 🗂️ Folder Structure
+## 🗂️ Project Structure
 
     CodeArchitect/
      ├── backend/
      ├── frontend/
-     ├── README.md
+     └── README.md
 
 ------------------------------------------------------------------------
 
-## 🔐 Environment Variables (Must Be Added)
+## 🔐 Environment Configuration (.env)
 
-Create a file named **.env** in the backend folder and paste:
+Create a `.env` file inside the **backend** directory and add:
 
-    # AI
     GEMINI_API_KEY=
-    GEMINI_MODEL=
-
-    # Server
     PORT=5000
 
     # GitHub
     GITHUB_TOKEN=
     GITHUB_USERNAME=
+    GEMINI_MODEL=
 
-    # Deployment
     VERCEL_TOKEN=
 
-    # Database
     MONGO_URI=mongodb://localhost:27017/codearchitect
-
-    # Security
     JWT_SECRET=
 
-> ⚠️ Never upload `.env` to GitHub.
+> Keep this file private. Never upload `.env` to GitHub.
 
 ------------------------------------------------------------------------
 
-## 🔑 Generate JWT Secret Key
+## 🔑 Generate a Secure JWT Key
+
+Recommended:
 
 ``` bash
 openssl rand -base64 32
 ```
 
-or
+Alternative:
 
 ``` bash
 node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
 ```
 
+Copy the key into:
+
+    JWT_SECRET=your_generated_key
+
 ------------------------------------------------------------------------
 
-## 🧰 Installation
+## 🧰 Installation & Setup
 
-### Clone
+### 1️⃣ Clone Repository
 
 ``` bash
 git clone <your-repository-url>
 cd CodeArchitect
 ```
+
+------------------------------------------------------------------------
+
+## ⚙️ Install Dependencies
 
 ### Frontend
 
@@ -135,35 +173,80 @@ npm install --save-dev nodemon
 
 ------------------------------------------------------------------------
 
-## ▶️ Run
+## ▶️ Running the Application
 
-Backend:
+### Start Backend
 
 ``` bash
 node index.js
 ```
 
-Frontend:
+OR
+
+``` bash
+npx nodemon index.js
+```
+
+### Start Frontend
 
 ``` bash
 cd frontend
 npm start
 ```
 
+Backend default:
+
+    http://localhost:5000
+
+Frontend default:
+
+    http://localhost:3000
+
+------------------------------------------------------------------------
+
+## 🚀 Workflow Summary
+
+1️⃣ Login / Authenticate\
+2️⃣ Enter prompt\
+3️⃣ AI generates code\
+4️⃣ Review website files\
+5️⃣ Push to GitHub\
+6️⃣ Deploy via Vercel\
+7️⃣ Access live URL
+
+------------------------------------------------------------------------
+
+## 📈 Benefits
+
+-   Reduced development effort\
+-   Automated deployment pipeline\
+-   Beginner‑friendly\
+-   Professional DevOps integration
+
+------------------------------------------------------------------------
+
+## 🔮 Future Enhancements
+
+-   Multi‑page generation\
+-   Theme customization options\
+-   Live preview editor
+
 ------------------------------------------------------------------------
 
 ## 👩‍💻 Developed By
 
-Project Team -- CodeArchitect
+**Project Team -- CodeArchitect**\
+Department of Artificial Intelligence & Data Science\
+Saveetha Engineering College
 
 ------------------------------------------------------------------------
 
 ## 📚 References
 
--   https://react.dev
--   https://nodejs.org
--   https://expressjs.com
--   https://www.mongodb.com/docs
--   https://ai.google.dev
--   https://docs.github.com
--   https://vercel.com/docs
+-   React --- https://react.dev\
+-   Node.js --- https://nodejs.org\
+-   Express --- https://expressjs.com\
+-   MongoDB --- https://www.mongodb.com/docs\
+-   Google Generative AI --- https://ai.google.dev\
+-   GitHub Docs --- https://docs.github.com\
+-   Vercel Docs --- https://vercel.com/docs
