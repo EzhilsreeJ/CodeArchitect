@@ -42,44 +42,17 @@ software-engineering standards.
 
 ## 🛠️ Tech Stack
 
-### Frontend
-
--   React.js\
--   HTML, CSS, JavaScript\
--   Custom animated UI (Cute Lamp Login)
-
-### Backend
-
--   Node.js\
--   Express.js\
--   REST APIs
-
-### Database
-
--   MongoDB (authentication + project data)
-
-### AI
-
--   LLM-powered code generation
-
-### DevOps / Deployment
-
--   GitHub (version control)\
--   Vercel (hosting)
+Frontend: React • HTML • CSS • JavaScript\
+Backend: Node.js • Express\
+Database: MongoDB\
+AI: LLM-based code generation\
+Deployment: GitHub • Vercel
 
 ------------------------------------------------------------------------
 
 ## 📋 Prerequisites
 
-Install before starting:
-
--   Node.js 18+\
--   Git\
--   MongoDB Atlas account\
--   GitHub account\
--   Vercel account
-
-Recommended: VS Code
+Install before starting: Node.js, Git, MongoDB, GitHub, Vercel.
 
 ------------------------------------------------------------------------
 
@@ -92,33 +65,41 @@ Recommended: VS Code
 
 ------------------------------------------------------------------------
 
-## 🔐 Environment Variables
+## 🔐 Environment Variables (Must Be Added)
 
-Create `.env` inside **backend**:
+Create a file named **.env** in the backend folder and paste:
 
-    MONGO_URI=your_mongodb_connection_string
-    JWT_SECRET=your_secret_key
-    GEMINI_API_KEY=your_ai_key
-    GITHUB_TOKEN=your_github_token
-    VERCEL_TOKEN=your_vercel_token
+    # AI
+    GEMINI_API_KEY=
+    GEMINI_MODEL=
 
-> Do not commit `.env` to GitHub.
+    # Server
+    PORT=5000
+
+    # GitHub
+    GITHUB_TOKEN=
+    GITHUB_USERNAME=
+
+    # Deployment
+    VERCEL_TOKEN=
+
+    # Database
+    MONGO_URI=mongodb://localhost:27017/codearchitect
+
+    # Security
+    JWT_SECRET=
+
+> ⚠️ Never upload `.env` to GitHub.
 
 ------------------------------------------------------------------------
 
-## 🔑 Generate JWT Secret Key (Recommended Command)
-
-Run this in terminal:
+## 🔑 Generate JWT Secret Key
 
 ``` bash
 openssl rand -base64 32
 ```
 
-Copy the generated value and paste it as:
-
-    JWT_SECRET=generated_key_here
-
-(Alternative if OpenSSL is unavailable)
+or
 
 ``` bash
 node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
@@ -126,7 +107,7 @@ node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
 
 ------------------------------------------------------------------------
 
-## 🧰 Installation Guide
+## 🧰 Installation
 
 ### Clone
 
@@ -135,80 +116,39 @@ git clone <your-repository-url>
 cd CodeArchitect
 ```
 
-------------------------------------------------------------------------
-
-## ⚙️ Install Dependencies
-
-### Frontend --- Single Command
+### Frontend
 
 ``` bash
 cd frontend
 npm install react react-dom react-router-dom react-markdown remark-gfm react-syntax-highlighter @vscode/codicons jszip file-saver clsx
-```
-
-### ➕ Install Axios (Frontend)
-
-Used for API requests:
-
-``` bash
 npm install axios
 ```
 
-------------------------------------------------------------------------
-
-### Backend --- Single Command
+### Backend
 
 ``` bash
 cd ../backend
 npm install express cors dotenv @google/generative-ai simple-git node-fetch buffer @vercel/client
-```
-
-### ➕ Install Axios (Backend -- if API calls are needed)
-
-``` bash
 npm install axios
-```
-
-(Optional dev tool)
-
-``` bash
 npm install --save-dev nodemon
 ```
 
 ------------------------------------------------------------------------
 
-## ▶️ Run the Project
+## ▶️ Run
 
-### Backend
+Backend:
 
 ``` bash
 node index.js
 ```
 
-or
-
-``` bash
-npx nodemon index.js
-```
-
-### Frontend
+Frontend:
 
 ``` bash
 cd frontend
 npm start
 ```
-
-------------------------------------------------------------------------
-
-## 🚀 Workflow
-
-1.  Login
-2.  Enter prompt
-3.  AI generates code
-4.  Review
-5.  Push to GitHub
-6.  Deploy via Vercel
-7.  Get live link
 
 ------------------------------------------------------------------------
 
@@ -220,10 +160,10 @@ Project Team -- CodeArchitect
 
 ## 📚 References
 
--   React --- https://react.dev
--   Node.js --- https://nodejs.org
--   Express --- https://expressjs.com
--   MongoDB --- https://www.mongodb.com/docs
--   Google Generative AI --- https://ai.google.dev
--   GitHub --- https://docs.github.com
--   Vercel --- https://vercel.com/docs
+-   https://react.dev
+-   https://nodejs.org
+-   https://expressjs.com
+-   https://www.mongodb.com/docs
+-   https://ai.google.dev
+-   https://docs.github.com
+-   https://vercel.com/docs
