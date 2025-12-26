@@ -2,52 +2,41 @@
 
 ## 📝 Problem Statement
 
-Modern web development involves many disconnected tools and repeated
-setup steps, which creates friction --- especially for beginners.
+Modern web development often requires multiple tools, repeated setup,
+and complex deployment workflows. Beginners and even experienced
+developers face challenges such as:
 
-Common difficulties include:
+-   **Integration gaps** -- no smooth link between local project files,
+    GitHub, and Vercel.\
+-   **Customization limits** -- difficulty changing themes, design, and
+    features.\
+-   **Setup problems** -- repeating the same configuration and
+    encountering different build errors on different systems.\
+-   **User challenges** -- unclear deployment steps and confusing error
+    messages.
 
--   **Integration gaps** --- no smooth link between local project files,
-    GitHub, and Vercel, leading to manual steps and mistakes.\
--   **Customization limits** --- changing layouts, themes, or features
-    often requires manual rewriting of large parts of code.\
--   **Setup problems** --- the same project has to be configured
-    multiple times, and builds fail differently across systems.\
--   **User challenges** --- beginners struggle with deployment workflows
-    and unclear error messages.
-
-CodeArchitect addresses these challenges by providing a unified
-AI‑driven platform that can:
-
--   generate complete website code from natural language prompts\
--   automatically structure projects\
--   connect seamlessly to GitHub and Vercel\
--   guide users through deployment with minimal effort
-
-This reduces time, errors, and complexity while supporting professional
-development standards.
+**CodeArchitect** solves these by providing one integrated platform that
+generates code, organizes projects, manages repositories, and deploys
+websites automatically --- all from natural‑language prompts.
 
 ------------------------------------------------------------------------
 
 ## 📌 Project Overview
 
-CodeArchitect is an AI-powered web application designed to automate the
-complete website development lifecycle. It enables users to generate
-fully functional websites using natural language prompts, manage the
-generated code, push it directly to GitHub, and deploy the application
-instantly. The system focuses on reducing development effort while
-maintaining modern development standards.
+CodeArchitect is an AI-powered web application that automates website
+creation and deployment. Users describe the website they want, and the
+system generates code, structures files, pushes to GitHub, and deploys
+to Vercel --- reducing time and effort while maintaining
+software‑engineering standards.
 
 ------------------------------------------------------------------------
 
 ## 🎯 Objectives
 
--   Simplify website development using AI-driven prompt-based
-    generation\
--   Automate code structuring and version control\
--   Enable one-click deployment workflows\
--   Provide an interactive and user-friendly interface for developers
-    and beginners
+-   Generate websites from natural‑language prompts\
+-   Reduce manual setup and deployment steps\
+-   Provide clear workflows for beginners\
+-   Support real DevOps practices with GitHub + Vercel
 
 ------------------------------------------------------------------------
 
@@ -56,99 +45,65 @@ maintaining modern development standards.
 ### Frontend
 
 -   React.js\
--   HTML5, CSS3, JavaScript\
--   Custom animated UI components (Cute Lamp Login UI)
+-   HTML, CSS, JavaScript\
+-   Custom animated UI (Cute Lamp Login)
 
 ### Backend
 
 -   Node.js\
 -   Express.js\
--   RESTful APIs
+-   REST APIs
 
 ### Database
 
--   MongoDB (User authentication & project data)
+-   MongoDB (authentication + project data)
 
-### AI Integration
+### AI
 
--   Large Language Model (LLM) for website code generation
+-   LLM‑powered code generation
 
-### DevOps & Deployment
+### DevOps / Deployment
 
--   GitHub (Version Control)\
--   Vercel (Deployment)
-
-------------------------------------------------------------------------
-
-## 🔐 Authentication Module
-
--   Secure user login with database-backed authentication\
--   Password hashing using bcrypt\
--   Token-based authentication using JWT\
--   Interactive animated login UI with visual feedback states
+-   GitHub (version control)\
+-   Vercel (hosting)
 
 ------------------------------------------------------------------------
 
-## ⚙️ Core Features
+## 📋 Prerequisites (Before You Start)
 
--   AI-based website generation from user prompts\
--   Automatic folder and file structure creation\
--   Code preview and editing interface\
--   GitHub repository integration\
--   Automatic redeployment on code updates\
--   Responsive and interactive UI\
--   Admin and user role separation
+Install the following on your system:
 
-------------------------------------------------------------------------
+-   **Node.js 18+** --- https://nodejs.org\
+-   **npm** (installed with Node)\
+-   **Git** --- https://git-scm.com/downloads\
+-   **MongoDB Atlas account** --- https://www.mongodb.com/atlas\
+-   **GitHub account** --- https://github.com\
+-   **Vercel account** --- https://vercel.com
 
-## 📊 System Design
-
--   UML Use Case Diagram\
--   Class Diagram\
--   Sequence Diagrams (User--System & Admin--System interaction)\
--   Modular MVC-based architecture
+Recommended: - VS Code --- https://code.visualstudio.com
 
 ------------------------------------------------------------------------
 
-## 🚀 Implementation Workflow
+## 🗂️ Project Folder Structure (Recommended)
 
-1.  User logs into the system\
-2.  User provides a natural language prompt\
-3.  AI generates complete website code\
-4.  Code is displayed and reviewed\
-5.  Project is pushed to GitHub\
-6.  Website is deployed via Vercel\
-7.  Live URL is generated instantly
+    CodeArchitect/
+     ├── backend/
+     ├── frontend/
+     ├── README.md
 
 ------------------------------------------------------------------------
 
-## 🧪 Testing
+## 🔐 Environment Variables (Required)
 
--   Manual functional testing\
--   API testing using Postman\
--   UI behavior testing for authentication states\
--   Error and edge-case handling
+Create a `.env` file inside **backend**:
 
-------------------------------------------------------------------------
+    MONGO_URI=your_mongodb_connection_string
+    JWT_SECRET=your_secret_key
+    GEMINI_API_KEY=your_ai_key
+    GITHUB_TOKEN=your_github_token
+    VERCEL_TOKEN=your_vercel_token
 
-## 📈 Advantages
-
--   Reduces development time significantly\
--   Beginner-friendly interface\
--   Eliminates manual deployment steps\
--   Scalable and modular architecture\
--   Real-world DevOps workflow integration
-
-------------------------------------------------------------------------
-
-## 🔮 Future Enhancements
-
--   Multi-page website generation\
--   Custom theme selection\
--   Live code editor with preview\
--   Collaboration features\
--   Cloud-based project storage\
--   AI-assisted debugging
+Never commit `.env` to GitHub.
 
 ------------------------------------------------------------------------
 
@@ -167,21 +122,19 @@ cd CodeArchitect
 
 ### 🔹 Frontend --- Single Command
 
-Move into the frontend folder and run:
-
 ``` bash
+cd frontend
 npm install react react-dom react-router-dom react-markdown remark-gfm react-syntax-highlighter @vscode/codicons jszip file-saver clsx
 ```
 
 ### 🔹 Backend --- Single Command
 
-Move into the backend folder and run:
-
 ``` bash
+cd ../backend
 npm install express cors dotenv @google/generative-ai simple-git node-fetch buffer @vercel/client
 ```
 
-(Optional --- developer tool)
+(Optional for development)
 
 ``` bash
 npm install --save-dev nodemon
@@ -189,58 +142,76 @@ npm install --save-dev nodemon
 
 ------------------------------------------------------------------------
 
-## ▶️ 3️⃣ How to Run the Project
+## ▶️ 3️⃣ Run the Project
 
-### 🖥️ Start Backend
-
-Inside the backend folder:
+### Start Backend
 
 ``` bash
 node index.js
 ```
 
-(or if using nodemon)
+or
 
 ``` bash
 npx nodemon index.js
 ```
 
-### 🌐 Start Frontend
-
-Inside the frontend folder:
+### Start Frontend
 
 ``` bash
+cd frontend
 npm start
 ```
 
-Frontend default:
+------------------------------------------------------------------------
 
-    http://localhost:3000
+## 🚀 Implementation Workflow
 
-Backend default:
-
-    http://localhost:5000
+1.  Login / Signup\
+2.  Enter website prompt\
+3.  AI generates website code\
+4.  User reviews and edits\
+5.  Push to GitHub\
+6.  Deploy to Vercel\
+7.  Receive live deployed link
 
 ------------------------------------------------------------------------
 
-## 📚 Conclusion
+## 🧪 Testing
 
-CodeArchitect demonstrates the effective integration of AI with modern
-web development and deployment practices. It provides a practical
-solution for rapid website creation while following professional
-software engineering standards.
+-   Manual testing\
+-   API testing in Postman\
+-   UI validation\
+-   Error‑handling checks
+
+------------------------------------------------------------------------
+
+## 📈 Benefits
+
+-   Faster development\
+-   Minimal setup\
+-   Beginner‑friendly\
+-   Real DevOps pipeline
+
+------------------------------------------------------------------------
+
+## 🔮 Future Enhancements
+
+-   Live preview editor\
+-   Multi‑theme generation\
+-   Collaboration features
 
 ------------------------------------------------------------------------
 
 ## 👩‍💻 Developed By
 
-**Project Team -- CodeArchitect**\
+Project Team -- CodeArchitect\
 Department of Artificial Intelligence & Data Science\
 Saveetha Engineering College
 
 ------------------------------------------------------------------------
 
-## ✅ References
+## 📚 References
 
 -   React --- https://react.dev\
 -   Node.js --- https://nodejs.org\
